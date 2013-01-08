@@ -1,9 +1,26 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*Generic Color Variables*/
 $black: #000000;
 $white: #ffffff;
-$lightGrey: #999999;
+$gray: #999999;
+$lightGray: #f5f5f5;
+
+/*Color of the menu*/
+$menuColor: $black;
+
+/*The color of the button to open the menu*/
+$buttonColor: $gray;
+
+/*Color of the three horizontal bars*/
+$iconBarColor: $lightGray;
+
+/*Define the menu size here*/
+/*Maximum of 85% for iPhone Style Menus*/
+/*Minimum of 10% for most applications*/
+$menuSize: 20%;
 
 body {
 	height: 100%;
@@ -11,19 +28,20 @@ body {
 }
 
 .menu {
+	width: $menuSize;
+	left: -$menuSize;
 	height: 100%;
-	width: 20%;
-	background-color: $black !important;
-	left: -20%;
 	top: 0px;
-	position: absolute;
-}
+	position: fixed;
+	overflow: auto;
+	background-color: $menuColor;
 
-.menuItem {
-	height: 30px;
-	width: 90%;
-	background-color: $white;
-	margin: 5%;
+	.menuItem {
+		height: 30px;
+		width: 90%;
+		background-color: $white;
+		margin: 5%;
+	}
 }
 
 .btn-menu {
@@ -32,19 +50,19 @@ body {
 	padding: 6px 8px;
 	margin-left: 5px;
 	margin-right: 5px;
-	background-color: $lightGrey;
+	background-color: $buttonColor;
 	position: relative;
 	left: 0%;
 	margin: 10px;
 	border-radius: 6px;
-}
 
-.icon-bar {
-	display: block;
-	width: 100%;
-	height: 20%;
-	background-color: #f5f5f5;
-	margin-top: 10%;
-	margin-bottom: 10%;
-	border-radius: 2px;
+	.icon-bar {
+		display: block;
+		width: 100%;
+		height: 20%;
+		background-color: $iconBarColor;
+		margin-top: 10%;
+		margin-bottom: 10%;
+		border-radius: 2px;
+	}
 }
