@@ -5,7 +5,6 @@
 #State of the Menu when you open the webpage
 menuState = "closed"
 
-
 jQuery ->
 	menuWidth = $('.menu').data('menuwidth')
 	closeSpeed = $('.menu').data('closespeed')
