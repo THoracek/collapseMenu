@@ -17,14 +17,9 @@ $buttonColor: $gray;
 /*Color of the three horizontal bars*/
 $iconBarColor: $lightGray;
 
-/*Define the menu size here*/
-/*85% for iPhone Style Menus*/
-/*Minimum of 5% for most applications*/
-$menuSize: 20%;
-
 .menu {
-	width: $menuSize;
-	left: -$menuSize;
+	width: 20%;
+	left: -20%;
 	height: 100%;
 	top: 0px;
 	position: fixed;
