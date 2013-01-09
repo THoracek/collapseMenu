@@ -18,14 +18,9 @@ $buttonColor: $gray;
 $iconBarColor: $lightGray;
 
 /*Define the menu size here*/
-/*Maximum of 85% for iPhone Style Menus*/
-/*Minimum of 10% for most applications*/
+/*85% for iPhone Style Menus*/
+/*Minimum of 5% for most applications*/
 $menuSize: 20%;
-
-body {
-	height: 100%;
-	width: 100%;
-}
 
 .menu {
 	width: $menuSize;
@@ -35,13 +30,6 @@ body {
 	position: fixed;
 	overflow: auto;
 	background-color: $menuColor;
-
-	.menuItem {
-		height: 30px;
-		width: 90%;
-		background-color: $white;
-		margin: 5%;
-	}
 }
 
 .btn-menu {
@@ -65,4 +53,11 @@ body {
 		margin-bottom: 10%;
 		border-radius: 2px;
 	}
+}
+
+.container {
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	position: relative;
 }
