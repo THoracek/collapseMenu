@@ -11,6 +11,9 @@ jQuery ->
 	openSpeed = $('.menu').data('openspeed')
 	edgeLocation = $('.menu').data('edgelocation')
 
+	if $(window).width() < 767
+		menuWidth = "80%"
+
 	#Change the menuWidth if it is not default
 	$('.menu').css("left", "-"+menuWidth)
 	$('.menu').css("width", menuWidth)
@@ -18,9 +21,9 @@ jQuery ->
 	$('.btn-menu').click ->
 		if menuState == "open"
 			$('.menu').animate(left:"-"+menuWidth, closeSpeed)
-			$('.container').animate(left:edgeLocation, closeSpeed)
+			$('.siteContainer').animate(left:edgeLocation, closeSpeed)
 			menuState = "closed"
 		else if menuState == "closed"
 			$('.menu').animate(left:edgeLocation, openSpeed)
-			$('.container').animate(left:menuWidth, openSpeed)
+			$('.siteContainer').animate(left:menuWidth, openSpeed)
 			menuState = "open"
