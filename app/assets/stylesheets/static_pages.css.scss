@@ -104,6 +104,11 @@ $lightGray: #f5f5f5;
 	}
 }
 
+body {
+	position: relative;
+	overflow-x: hidden;
+}
+
 .siteContainer {
 	height: 100%;
 	width: 100%;
