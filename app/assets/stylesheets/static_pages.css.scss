@@ -8,6 +8,10 @@ $white: #ffffff;
 $gray: #999999;
 $lightGray: #f5f5f5;
 
+body {
+	overflow: hidden;
+}
+
 .menu {
 	width: 20%;
 	left: -20%;
@@ -102,10 +106,6 @@ $lightGray: #f5f5f5;
 		margin-bottom: 10%;
 		border-radius: 2px;
 	}
-}
-
-body {
-	position: relative;
 }
 
 .siteContainer {
