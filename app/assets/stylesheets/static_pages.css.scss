@@ -8,10 +8,6 @@ $white: #ffffff;
 $gray: #999999;
 $lightGray: #f5f5f5;
 
-body {
-	overflow-x:hidden;
-}
-
 .menu {
 	width: 20%;
 	left: -20%;
@@ -20,7 +16,6 @@ body {
 	position: fixed;
 	overflow: auto;
 	background-color: $black;
-	z-index: 9999;
 
 	.row {
 		width: 100%;
@@ -111,7 +106,6 @@ body {
 
 body {
 	position: relative;
-	overflow-x: hidden;
 }
 
 .siteContainer {
@@ -119,15 +113,6 @@ body {
 	width: 100%;
 	top: 0px;
 	position: relative;
-	overflow-x: hidden;
-}
-
-@media (max-width: 320px) {
-	body {
-		width: 320px;
-		margin: 0;
-		padding: 0;
-	}
 }
 
 @media (min-width: 768px) {
@@ -138,7 +123,6 @@ body {
 		top: 0px;
 		position: relative;
 		overflow-x: hidden;
-		z-index: 1;
 	}
 
 	.menu {
