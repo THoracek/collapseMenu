@@ -49,8 +49,10 @@ jQuery ->
 		if menuState == "open"
 			$('.menu').animate(left:"-" + menuWidth, closeSpeed)
 			$('.siteContainer').animate(left:edgeLocation, closeSpeed)
+			$(".siteContainer").on("touchmove", true)
 			menuState = "closed"
 		else if menuState == "closed"
 			$('.menu').animate(left:edgeLocation, openSpeed)
 			$('.siteContainer').animate(left:siteWidth, openSpeed)
+			$(".siteContainer").on("touchmove", false);
 			menuState = "open"
