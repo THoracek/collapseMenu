@@ -3,6 +3,13 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 # Responsive Action
+#This doesnt work well with the iPhone because it resizes at every touch
+
+isNotiPhone = () ->
+    return (
+        (navigator.platform.indexOf("iPhone") == -1) || (navigator.platform.indexOf("iPod") == -1)
+    )
+
 changeMenuWidth = (e) ->
 	if ($(window).width() < 767)
 		$(".menu").data("menuwidth", "80%")
@@ -36,7 +43,8 @@ jQuery ->
 		$(".menu").css("left", "-20%")
 		$('.siteContainer').css('left', "0%")
 
-	$(window).bind("resize", changeMenuWidth)
+	if(isNotiPhone())
+		$(window).bind("resize", changeMenuWidth)
 
 	$('.btn-menu').click ->
 		closeSpeed = $('.menu').data('closespeed')
