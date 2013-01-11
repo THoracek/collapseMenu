@@ -6,7 +6,7 @@
 changeMenuWidth = (e) ->
 	if ($(window).width() < 767)
 		$(".menu").data("menuwidth", "80%")
-		$('.menu').data('sitewidth', "90%")
+		$('.menu').data('sitewidth', "85%")
 		$(".menu").css("width", "80%")
 		$(".menu").css("left", "-80%")
 		$('.siteContainer').css('left', "0%")
@@ -24,7 +24,7 @@ menuState = "closed"
 jQuery ->
 	if ($(window).width() < 767)
 		$(".menu").data("menuwidth", "80%")
-		$('.menu').data('sitewidth', "90%")
+		$('.menu').data('sitewidth', "85%")
 		$(".menu").css("width", "80%")
 		$(".menu").css("left", "-80%")
 		$('.siteContainer').css('left', "0%")
@@ -49,8 +49,10 @@ jQuery ->
 		if menuState == "open"
 			$('.menu').animate(left:"-" + menuWidth, closeSpeed)
 			$('.siteContainer').animate(left:edgeLocation, closeSpeed)
+			$('body').css('position', "relative")
 			menuState = "closed"
 		else if menuState == "closed"
 			$('.menu').animate(left:edgeLocation, openSpeed)
 			$('.siteContainer').animate(left:siteWidth, openSpeed)
+			$('body').css('position', "fixed")
 			menuState = "open"
