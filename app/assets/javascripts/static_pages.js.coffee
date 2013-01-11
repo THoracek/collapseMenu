@@ -36,7 +36,7 @@ jQuery ->
 		$(".menu").css("left", "-20%")
 		$('.siteContainer').css('left', "0%")
 
-	if($(window).width() > 600)
+	if($(window).width() > 767)
 		$(window).bind("resize", changeMenuWidth)
 
 	$('.btn-menu').click ->
@@ -49,10 +49,12 @@ jQuery ->
 		if menuState == "open"
 			$('.menu').animate(left:"-" + menuWidth, closeSpeed)
 			$('.siteContainer').animate(left:edgeLocation, closeSpeed)
-			$('body').css('position', "relative")
+			if ($(window).width() < 767)
+				$('body').css('position', "relative")
 			menuState = "closed"
 		else if menuState == "closed"
 			$('.menu').animate(left:edgeLocation, openSpeed)
 			$('.siteContainer').animate(left:siteWidth, openSpeed)
-			$('body').css('position', "fixed")
+			if ($(window).width() < 767)
+				$('body').css('position', "fixed")
 			menuState = "open"
