@@ -104,11 +104,17 @@ $lightGray: #f5f5f5;
 	}
 }
 
+body {
+	position: relative;
+	overflow-x: hidden;
+}
+
 .siteContainer {
 	height: 100%;
 	width: 100%;
 	top: 0px;
 	position: relative;
+	overflow-x: hidden;
 }
 
 @media (min-width: 768px) {
@@ -118,6 +124,7 @@ $lightGray: #f5f5f5;
 		width: 100%;
 		top: 0px;
 		position: relative;
+		overflow-x: hidden;
 	}
 
 	.menu {
