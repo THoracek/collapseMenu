@@ -122,6 +122,14 @@ body {
 	overflow-x: hidden;
 }
 
+@media (max-width: 320px) {
+	body {
+		width: 320px;
+		margin: 0;
+		padding: 0;
+	}
+}
+
 @media (min-width: 768px) {
 
 	.siteContainer {
