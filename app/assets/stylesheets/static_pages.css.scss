@@ -67,7 +67,7 @@ $lightGray: #f5f5f5;
 				}
 			}
 		}
-		
+
 		.menuPointer {
 			display: inline-block;
 			width: 5%;
@@ -88,7 +88,9 @@ $lightGray: #f5f5f5;
 	background-color: $gray;
 	position: relative;
 	left: 0%;
-	margin: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 0px;
 	border-radius: 6px;
 
 	.icon-bar {
@@ -108,3 +110,34 @@ $lightGray: #f5f5f5;
 	top: 0px;
 	position: relative;
 }
+
+/*@media (max-width: 767px) {
+
+	.siteContainer {
+		height: 100%;
+		width: 100%;
+		top: 0px;
+		position: relative;
+		left: 0%;
+	}
+
+	.menu {
+		width: 80%;
+		left: -10%;
+	}
+}
+
+@media (min-width: 768px) {
+
+	.siteContainer {
+		height: 100%;
+		width: 100%;
+		top: 0px;
+		position: relative;
+	}
+
+	.menu {
+		width: 20%;
+		left: -20%;
+	}
+}*/

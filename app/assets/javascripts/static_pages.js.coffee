@@ -2,28 +2,54 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+# Responsive Action
+changeMenuWidth = (e) ->
+	if ($(window).width() < 767)
+		$(".menu").data("menuwidth", "80%")
+		$('.menu').data('sitewidth', "90%")
+		$(".menu").css("width", "80%")
+		$(".menu").css("left", "-80%")
+		$('.siteContainer').css('left', "0%")
+
+	if ($(window).width() > 767)
+		$(".menu").data("menuwidth", "20%")
+		$('.menu').data('sitewidth', "20%")
+		$(".menu").css("width", "20%")
+		$(".menu").css("left", "-20%")
+		$('.siteContainer').css('left', "0%")
+
 #State of the Menu when you open the webpage
 menuState = "closed"
 
 jQuery ->
-	menuWidth = $('.menu').data('menuwidth')
-	closeSpeed = $('.menu').data('closespeed')
-	openSpeed = $('.menu').data('openspeed')
-	edgeLocation = $('.menu').data('edgelocation')
+	if ($(window).width() < 767)
+		$(".menu").data("menuwidth", "80%")
+		$('.menu').data('sitewidth', "90%")
+		$(".menu").css("width", "80%")
+		$(".menu").css("left", "-80%")
+		$('.siteContainer').css('left', "0%")
 
-	if $(window).width() < 767
-		menuWidth = "80%"
+	if ($(window).width() > 767)
+		$(".menu").data("menuwidth", "20%")
+		$('.menu').data('sitewidth', "20%")
+		$(".menu").css("width", "20%")
+		$(".menu").css("left", "-20%")
+		$('.siteContainer').css('left', "0%")
 
-	#Change the menuWidth if it is not default
-	$('.menu').css("left", "-"+menuWidth)
-	$('.menu').css("width", menuWidth)
+	$(window).bind("resize", changeMenuWidth)
 
 	$('.btn-menu').click ->
+		closeSpeed = $('.menu').data('closespeed')
+		openSpeed = $('.menu').data('openspeed')
+		menuWidth = $('.menu').data('menuwidth')
+		edgeLocation = $('.menu').data('edgelocation')
+		siteWidth = $('.menu').data('sitewidth')
+
 		if menuState == "open"
-			$('.menu').animate(left:"-"+menuWidth, closeSpeed)
+			$('.menu').animate(left:"-" + menuWidth, closeSpeed)
 			$('.siteContainer').animate(left:edgeLocation, closeSpeed)
 			menuState = "closed"
 		else if menuState == "closed"
 			$('.menu').animate(left:edgeLocation, openSpeed)
-			$('.siteContainer').animate(left:menuWidth, openSpeed)
+			$('.siteContainer').animate(left:siteWidth, openSpeed)
 			menuState = "open"
