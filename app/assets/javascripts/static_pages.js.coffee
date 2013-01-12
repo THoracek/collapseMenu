@@ -39,6 +39,7 @@ jQuery ->
 	if($(window).width() > 767)
 		$(window).bind("resize", changeMenuWidth)
 
+	# Menu Open/Close Button
 	$('.btn-menu').click ->
 		closeSpeed = $('.menu').data('closespeed')
 		openSpeed = $('.menu').data('openspeed')
@@ -58,3 +59,14 @@ jQuery ->
 			if ($(window).width() < 767)
 				$('body').css('position', "fixed")
 			menuState = "open"
+
+	# This closes the menu when a link is pressed before loading the next page
+	$(".menuLink").click (e) ->
+		e.preventDefault()
+		$('.siteContainer').animate(
+			left: $('.menu').data('edgelocation')
+		, $('.menu').data('closespeed'))
+		$(".menu").animate
+			left: "-" + $('.menu').data('menuwidth')
+		, $('.menu').data('closespeed'), ->
+			document.location.href = $(".menuLink").attr('href')
