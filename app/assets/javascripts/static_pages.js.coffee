@@ -26,19 +26,7 @@ changeMenuWidth = (e) ->
 $(".menu").data("state", "closed")
 
 jQuery ->
-	if ($(window).width() < 767)
-		$(".menu").data("menuwidth", "80%")
-		$('.menu').data('sitewidth', "85%")
-		$(".menu").css("width", "80%")
-		$(".menu").css("left", "-80%")
-		$('.siteContainer').css('left', "0%")
-
-	if ($(window).width() > 767)
-		$(".menu").data("menuwidth", "20%")
-		$('.menu').data('sitewidth', "20%")
-		$(".menu").css("width", "20%")
-		$(".menu").css("left", "-20%")
-		$('.siteContainer').css('left', "0%")
+	$(window).bind("load", changeMenuWidth)
 
 	if($(window).width() > 767)
 		$(window).bind("resize", changeMenuWidth)
