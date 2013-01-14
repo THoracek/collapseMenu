@@ -40,7 +40,8 @@ jQuery ->
 		$(".menu").css("left", "-20%")
 		$('.siteContainer').css('left', "0%")
 
-	$(window).bind("resize", changeMenuWidth)
+	if($(window).width() > 767)
+		$(window).bind("resize", changeMenuWidth)
 
 	# Menu Open/Close Button
 	$('.btn-menu').click ->
@@ -56,7 +57,7 @@ jQuery ->
 			if ($(window).width() < 767)
 				$('body').css('position', "relative")
 			$(".menu").data("state", "closed")
-			
+
 		else if $(".menu").data("state") == "closed"
 			$('.menu').animate(left:edgeLocation, openSpeed)
 			$('.siteContainer').animate(left:siteWidth, openSpeed)
