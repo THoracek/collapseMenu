@@ -1,28 +1,3 @@
-== Welcome to collapseMenu
-
-  Simple rails application that implements a very basic collapsing or sliding menu in HTML, css, coffeescript/javascript, and jQuery. This menu is similar to the ones that are in Path and Facebook for the iPhone and facebooks mobile site.
-
-  I designed this menu to be simple.
-
-==Working Example Online
-  http://protected-oasis-5276.herokuapp.com
-
-== Getting Started
-
-1. Download the latest release. https://github.com/THoracek/collapseMenu/archive/master.zip
-
-2. Change directory to <tt>collapseMenu-master</tt> and start the web server:
-       <tt>cd collapseMenu-master; rails server</tt> (run with --help for options)
-
-3. Go to http://localhost:3000/ and you'll see the menu in action!
-
-==Requirements
-To run the code locally, ruby on rails installed
-
-==Contributing
-Forks, patches and other feedback are welcome.
-
-==License
 Copyright (c) 2013 Thomas Horacek All rights reserved.
 
 This code is distributed under the terms and conditions of the MIT license.
