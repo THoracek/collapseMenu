@@ -2,10 +2,13 @@
 
 Simple rails application that implements a very basic collapsing or sliding menu in HTML, css, coffeescript/javascript, and jQuery. This menu is similar to the ones that are in Path and Facebook for the iPhone and facebooks mobile site.
 
-The menu is responsive and closes automatically when the window is resized.
+The menu is responsive and closes automatically when the window is resized.  When a button is pressed in the menu the menu will slide closed before loading the linked page.  Currently only the "Home" button in the menu has an active link.
 
 ==Working Example Online
 http://protected-oasis-5276.herokuapp.com
+
+Press the menu button in the upper left hand corner to open and close the menu.  Press the "Home" button in the menu to see the clicked-link close-menu animation.
+Resize the window to be less that 750 pixels to see the resposive change the menu makes for mobile sizes.
 
 == Getting Started
 
@@ -17,7 +20,9 @@ http://protected-oasis-5276.herokuapp.com
 3. Go to http://localhost:3000/ and you'll see the menu in action!
 
 ==Requirements
-To run the code locally, ruby on rails installed
+To run the code locally, ruby on rails needs to be installed on your system so you can run the "rails server" command.
+
+The code itself is all done in HTML, css/scss, and coffeescript/javascript/jQuery
 
 ==Contributing
 Forks, patches and other feedback are welcome.
