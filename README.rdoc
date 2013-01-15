@@ -15,7 +15,7 @@ Resize the window to be less that 750 pixels to see the resposive change the men
 1. Download the latest release. https://github.com/THoracek/collapseMenu/archive/master.zip
 
 2. Change directory to <tt>collapseMenu-master</tt> and start the web server:
-       <tt>cd collapseMenu-master; rails server</tt> (run with --help for options)
+<tt>cd collapseMenu-master; rails server</tt> (run with --help for options)
 
 3. Go to http://localhost:3000/ and you'll see the menu in action!
 
