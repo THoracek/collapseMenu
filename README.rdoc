@@ -1,11 +1,11 @@
 == Welcome to collapseMenu
 
-  Simple rails application that implements a very basic collapsing or sliding menu in HTML, css, coffeescript/javascript, and jQuery. This menu is similar to the ones that are in Path and Facebook for the iPhone and facebooks mobile site.
+Simple rails application that implements a very basic collapsing or sliding menu in HTML, css, coffeescript/javascript, and jQuery. This menu is similar to the ones that are in Path and Facebook for the iPhone and facebooks mobile site.
 
-  I designed this menu to be simple.
+The menu is responsive and closes automatically when the window is resized.
 
 ==Working Example Online
-  http://protected-oasis-5276.herokuapp.com
+http://protected-oasis-5276.herokuapp.com
 
 == Getting Started
 
