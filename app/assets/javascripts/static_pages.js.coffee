@@ -3,32 +3,37 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 # Responsive Action
+ResponsiveWindowWidth = 767
+
+#Menu Characteristics 
+edgeLocation = "0%"
+mobileMenuWidth = "80%"
+desktopMenuWidth = "20%"
+mobileSiteWidth = "85%"
+
 changeMenuWidth = (e) ->
-	if ($(window).width() < 767)
-		$(".menu").data("menuwidth", "80%")
-		$('.menu').data('sitewidth', "85%")
-		$(".menu").css("width", "80%")
-		$(".menu").css("left", "-80%")
-		$('.siteContainer').css('left', "0%")
+	if ($(window).width() < ResponsiveWindowWidth)
+		$(".menu").data("menuwidth", mobileMenuWidth)
+		$('.menu').data('sitewidth', mobileSiteWidth)
+		$(".menu").css("width", mobileMenuWidth)
+		$(".menu").css("left", "-" + mobileMenuWidth)
+		$('.siteContainer').css('left', edgeLocation)
 		$('body').css('position', "relative")
 		$(".menu").data("state", "closed")
 
-	if ($(window).width() > 767)
-		$(".menu").data("menuwidth", "20%")
-		$('.menu').data('sitewidth', "20%")
-		$(".menu").css("width", "20%")
-		$(".menu").css("left", "-20%")
-		$('.siteContainer').css('left', "0%")
+	if ($(window).width() > ResponsiveWindowWidth)
+		$(".menu").data("menuwidth", desktopMenuWidth)
+		$('.menu').data('sitewidth', desktopMenuWidth)
+		$(".menu").css("width", desktopMenuWidth)
+		$(".menu").css("left", "-" + desktopMenuWidth)
+		$('.siteContainer').css('left', edgeLocation)
 		$('body').css('position', "relative")
 		$(".menu").data("state", "closed")
-
-#State of the Menu when you open the webpage
-$(".menu").data("state", "closed")
 
 jQuery ->
 	$(window).bind("load", changeMenuWidth)
 
-	if($(window).width() > 767)
+	if($(window).width() > ResponsiveWindowWidth)
 		$(window).bind("resize", changeMenuWidth)
 
 	# Menu Open/Close Button
@@ -42,14 +47,14 @@ jQuery ->
 		if $(".menu").data("state") == "open"
 			$('.menu').animate(left:"-" + menuWidth, closeSpeed)
 			$('.siteContainer').animate(left:edgeLocation, closeSpeed)
-			if ($(window).width() < 767)
+			if ($(window).width() < ResponsiveWindowWidth)
 				$('body').css('position', "relative")
 			$(".menu").data("state", "closed")
 
 		else if $(".menu").data("state") == "closed"
 			$('.menu').animate(left:edgeLocation, openSpeed)
 			$('.siteContainer').animate(left:siteWidth, openSpeed)
-			if ($(window).width() < 767)
+			if ($(window).width() < ResponsiveWindowWidth)
 				$('body').css('position', "fixed")
 			$(".menu").data("state", "open")
 
