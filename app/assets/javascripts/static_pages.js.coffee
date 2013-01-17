@@ -5,7 +5,7 @@
 # Responsive Action
 ResponsiveWindowWidth = 767
 
-#Menu Characteristics 
+#Menu Characteristics
 edgeLocation = "0%"
 mobileMenuWidth = "80%"
 desktopMenuWidth = "20%"
