@@ -88,7 +88,6 @@ body {
 	width: 100%;
 	top: 0px;
 	position: relative;
-	overflow-x:hidden;
 
 	.btn-menu {
 		width: 20px;
@@ -111,13 +110,5 @@ body {
 			margin-bottom: 10%;
 			border-radius: 2px;
 		}
-	}
-}
-
-@media (max-width: 400px) {
-	body {
-		-ms-overflow-x: hidden;
-		overflow-x: hidden;
-		overflow-y: auto;
 	}
 }
