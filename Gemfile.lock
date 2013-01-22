@@ -50,6 +50,7 @@ GEM
     jquery-ui-rails (3.0.1)
       jquery-rails
       railties (>= 3.1.0)
+    jquerymobile-rails (0.2.3)
     json (1.7.6)
     less (2.2.2)
       commonjs (~> 0.2.6)
@@ -125,6 +126,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
   jquery-ui-rails
+  jquerymobile-rails
   pg
   rails (= 3.2.11)
   sass-rails (~> 3.2.3)
