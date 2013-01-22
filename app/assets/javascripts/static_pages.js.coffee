@@ -10,6 +10,7 @@ edgeLocation = "0%"
 mobileMenuWidth = "80%"
 desktopMenuWidth = "20%"
 mobileSiteWidth = "85%"
+$.mobile.loadingMessage = false;
 
 changeMenuWidth = (e) ->
 	if ($(window).width() < ResponsiveWindowWidth)
