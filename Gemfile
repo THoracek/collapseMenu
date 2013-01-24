@@ -27,7 +27,6 @@ end
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'jquerymobile-rails'
 gem 'twitter-bootstrap-rails'
 
 # To use ActiveModel has_secure_password
