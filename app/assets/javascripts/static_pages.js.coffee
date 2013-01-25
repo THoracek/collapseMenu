@@ -5,76 +5,58 @@
 # Responsive Action
 ResponsiveWindowWidth = 767
 
-#Menu Characteristics
-edgeLocation = "0%"
-mobileMenuWidth = "80%"
-negMobileMenuWidth = "-85%"
-desktopMenuWidth = "20%"
-mobileSiteWidth = "85%"
-
 #Turn on or off touch based menu sliding ("on"/"off")
 touchToggle = "on"
 
+#Swipe Variables
 maxTime = 1000
 maxDistance = 50
 startX = 0
 startTime = 0
-speed = 200
-animationState = "done"
-closed = "closed"
-open = "open"
-fixed = "fixed"
-relative = "relative"
+
 touch = "ontouchend" of document
 startEvent = (if (touch) then "touchstart" else "mousedown")
 moveEvent = (if (touch) then "touchmove" else "mousemove")
 endEvent = (if (touch) then "touchend" else "mouseup")
 
-changeMenuWidth = (e) ->
-	$(".menu").removeClass("menu-open-mobile");
-	$('.siteContainer').removeClass("site-open-mobile");
-	$(".menu").removeClass("menu-open-browser");
-	$('.siteContainer').removeClass("site-open-browser");
+clearMenu = (e) ->
+	$(".menu").removeClass("menu-open-mobile")
+	$('.siteContainer').removeClass("site-open-mobile")
+	$(".menu").removeClass("menu-open-browser")
+	$('.siteContainer').removeClass("site-open-browser")
+
+closeMenu = (e) ->
+	if ($(window).width() < ResponsiveWindowWidth)
+		$(".menu").toggleClass("menu-open-mobile")
+		$('.siteContainer').toggleClass("site-open-mobile")
+		$('body').css "position", "relative"
+	else
+		$(".menu").toggleClass("menu-open-browser")
+		$('.siteContainer').toggleClass("site-open-browser")
+	$(".menu").data "state", "closed"
+
+openMenu = (e) ->
+	if ($(window).width() < ResponsiveWindowWidth)
+		$(".menu").toggleClass("menu-open-mobile")
+		$('.siteContainer').toggleClass("site-open-mobile")
+		$('body').css "position", "fixed"
+	else
+		$(".menu").toggleClass("menu-open-browser");
+		$('.siteContainer').toggleClass("site-open-browser")
+	$(".menu").data "state", "open"
 
 jQuery ->
-
 	#Closes the menu when resizing in the browser
-	$(window).bind("resize", changeMenuWidth)
+	$(window).bind("resize", clearMenu)
 
 	# Menu Open/Close Button
 	$('.btn-menu').click ->
-
 		if $(".menu").data("state") == "open"
-			if ($(window).width() < ResponsiveWindowWidth)
-				$(".menu").toggleClass("menu-open-mobile");
-				$('.siteContainer').toggleClass("site-open-mobile");
-				$('body').css "position", relative
-			else
-				$(".menu").toggleClass("menu-open-browser");
-				$('.siteContainer').toggleClass("site-open-browser");
-			$(".menu").data "state", closed
-
+			closeMenu ->
 		else if $(".menu").data("state") == "closed"
-			if ($(window).width() < ResponsiveWindowWidth)
-				$(".menu").toggleClass("menu-open-mobile");
-				$('.siteContainer').toggleClass("site-open-mobile");
-				$('body').css "position", fixed
-			else
-				$(".menu").toggleClass("menu-open-browser");
-				$('.siteContainer').toggleClass("site-open-browser");
-			$(".menu").data "state", open
+			openMenu ->
 
-	# This closes the menu when a link is pressed before loading the next page
-	$(".menuLink").click (e) ->
-		e.preventDefault()
-		$('.siteContainer').animate(
-			left: edgeLocation
-		, $('.menu').data('closespeed'))
-		$(".menu").animate
-			left: "-" + $('.menu').data('menuwidth')
-		, $('.menu').data('closespeed'), ->
-			document.location.href = $(".menuLink").attr('href')
-
+	#Turn on or off touch based menu sliding ("on"/"off")
 	if touchToggle == "on"
 		$(".siteContainer").bind startEvent, (e) ->
 			startTime = e.timeStamp
@@ -90,22 +72,8 @@ jQuery ->
 			currentTime = e.timeStamp
 			if startTime != 0 && currentTime - startTime < maxTime && currentDistance > maxDistance
 				if currentX < startX
-					if $(".menu").data("state") == open
-						if ($(window).width() < ResponsiveWindowWidth)
-							$(".menu").toggleClass("menu-open-mobile");
-							$('.siteContainer').toggleClass("site-open-mobile");
-							$('body').css "position", relative
-						else
-							$(".menu").toggleClass("menu-open-browser");
-							$('.siteContainer').toggleClass("site-open-browser");
-						$(".menu").data "state", closed
+					if $(".menu").data("state") == "open"
+						closeMenu ->
 				if currentX > startX
-					if $(".menu").data("state") == closed
-						if ($(window).width() < ResponsiveWindowWidth)
-							$(".menu").toggleClass("menu-open-mobile");
-							$('.siteContainer').toggleClass("site-open-mobile");
-							$('body').css "position", fixed
-						else
-							$(".menu").toggleClass("menu-open-browser");
-							$('.siteContainer').toggleClass("site-open-browser");
-						$(".menu").data "state", open
+					if $(".menu").data("state") == "closed"
+						openMenu ->
