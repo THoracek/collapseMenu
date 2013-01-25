@@ -134,7 +134,7 @@ jQuery ->
 		currentDistance = (if (startX is 0) then 0 else Math.abs(currentX - startX))
 		currentTime = e.timeStamp
 		if startTime != 0 && currentTime - startTime < maxTime && currentDistance > maxDistance
-			if($(window).width() > ResponsiveWindowWidth)
+			if($(window).width() <= ResponsiveWindowWidth)
 				if currentX < startX
 					console.log("Swipe Right")
 					if $(".menu").data("state") == "open"
