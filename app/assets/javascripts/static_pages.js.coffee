@@ -106,39 +106,39 @@ jQuery ->
 	# 				$(".menu").data("state", "open")
 	# 			$('.siteContainer').animate(left: $('.menu').data('sitewidth'), 200)
 
-maxTime = 1000
-maxDistance = 50
-startX = 0
-startTime = 0
-touch = "ontouchend" of document
-startEvent = (if (touch) then "touchstart" else "mousedown")
-moveEvent = (if (touch) then "touchmove" else "mousemove")
-endEvent = (if (touch) then "touchend" else "mouseup")
+# maxTime = 1000
+# maxDistance = 50
+# startX = 0
+# startTime = 0
+# touch = "ontouchend" of document
+# startEvent = (if (touch) then "touchstart" else "mousedown")
+# moveEvent = (if (touch) then "touchmove" else "mousemove")
+# endEvent = (if (touch) then "touchend" else "mouseup")
 
-jQuery ->
-	$(".siteContainer").bind startEvent, (e) ->
-		startTime = e.timeStamp
-		startX = (if e.originalEvent.touches then e.originalEvent.touches[0].pageX else e.pageX)
+# jQuery ->
+# 	$(".siteContainer").bind startEvent, (e) ->
+# 		startTime = e.timeStamp
+# 		startX = (if e.originalEvent.touches then e.originalEvent.touches[0].pageX else e.pageX)
 
-	$(".siteContainer").bind endEvent, (e) ->
-		startTime = 0
-		startX = 0
+# 	$(".siteContainer").bind endEvent, (e) ->
+# 		startTime = 0
+# 		startX = 0
 
-	$(".siteContainer").bind moveEvent, (e) ->
-		currentX = (if e.originalEvent.touches then e.originalEvent.touches[0].pageX else e.pageX)
-		currentDistance = (if (startX is 0) then 0 else Math.abs(currentX - startX))
-		currentTime = e.timeStamp
-		if startTime != 0 && currentTime - startTime < maxTime && currentDistance > maxDistance
-			if($(window).width() <= ResponsiveWindowWidth)
-				if currentX < startX
-					if $(".menu").data("state") == "open"
-						$('.menu').animate(left:"-" + mobileMenuWidth, 200)
-						$('.siteContainer').animate(left:edgeLocation, 200)
-						$('body').css('position', "relative")
-						$(".menu").data("state", "closed")
-				if currentX > startX
-					if $(".menu").data("state") == "closed"
-						$('.menu').animate(left:edgeLocation, 200)
-						$('.siteContainer').animate(left:mobileSiteWidth, 200)
-						$('body').css('position', "fixed")
-						$(".menu").data("state", "open")
+# 	$(".siteContainer").bind moveEvent, (e) ->
+# 		currentX = (if e.originalEvent.touches then e.originalEvent.touches[0].pageX else e.pageX)
+# 		currentDistance = (if (startX is 0) then 0 else Math.abs(currentX - startX))
+# 		currentTime = e.timeStamp
+# 		if startTime != 0 && currentTime - startTime < maxTime && currentDistance > maxDistance
+# 			if($(window).width() <= ResponsiveWindowWidth)
+# 				if currentX < startX
+# 					if $(".menu").data("state") == "open"
+# 						$('.menu').animate(left:"-" + mobileMenuWidth, 200)
+# 						$('.siteContainer').animate(left:edgeLocation, 200)
+# 						$('body').css('position', "relative")
+# 						$(".menu").data("state", "closed")
+# 				if currentX > startX
+# 					if $(".menu").data("state") == "closed"
+# 						$('.menu').animate(left:edgeLocation, 200)
+# 						$('.siteContainer').animate(left:mobileSiteWidth, 200)
+# 						$('body').css('position', "fixed")
+# 						$(".menu").data("state", "open")
