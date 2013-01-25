@@ -24,6 +24,12 @@ body {
 	overflow-x: hidden;
 	background-color: $black;
 
+	-webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    transition: all .2s ease;
+
 	.row {
 		width: 100%;
 		margin-left: 0px;
@@ -83,11 +89,71 @@ body {
 	}
 }
 
+.menu-open-mobile {
+	width: 80%;
+	left: 0%;
+	height: 100%;
+	top: 0px;
+	position: fixed;
+	-ms-overflow-x: hidden;
+	overflow-x: hidden;
+	background-color: $black;
+
+	-webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.site-open-mobile {
+	left: 85%;
+
+	-webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.site-open-browser {
+	left: 20%;
+
+	-webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.menu-open-browser {
+	width: 20%;
+	left: 0%;
+	height: 100%;
+	top: 0px;
+	position: fixed;
+	-ms-overflow-x: hidden;
+	overflow-x: hidden;
+	background-color: $black;
+
+	-webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
 .siteContainer {
 	height: 100%;
 	width: 100%;
 	top: 0px;
 	position: relative;
+
+	-webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    transition: all .2s ease;
 
 	.btn-menu {
 		width: 20px;

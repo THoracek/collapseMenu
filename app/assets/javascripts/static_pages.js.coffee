@@ -5,8 +5,6 @@
 # Responsive Action
 ResponsiveWindowWidth = 767
 
-# $.mobile.loadingMessage = false;
-
 #Menu Characteristics
 edgeLocation = "0%"
 mobileMenuWidth = "80%"
@@ -15,7 +13,7 @@ desktopMenuWidth = "20%"
 mobileSiteWidth = "85%"
 
 #Turn on or off touch based menu sliding ("on"/"off")
-touchToggle = "off"
+touchToggle = "on"
 
 maxTime = 1000
 maxDistance = 50
@@ -32,57 +30,30 @@ startEvent = (if (touch) then "touchstart" else "mousedown")
 moveEvent = (if (touch) then "touchmove" else "mousemove")
 endEvent = (if (touch) then "touchend" else "mouseup")
 
-changeMenuWidth = (e) ->
-	if ($(window).width() < ResponsiveWindowWidth)
-		$(".menu").data("menuwidth", mobileMenuWidth)
-		$('.menu').data('sitewidth', mobileSiteWidth)
-		$(".menu").css("width", mobileMenuWidth)
-		$(".menu").css("left", "-" + mobileMenuWidth)
-		$('.siteContainer').css 'left', edgeLocation, ->
-			$('body').css('position', "relative")
-			$(".menu").data("state", "closed")
-			animationState = "done"
-
-	if ($(window).width() > ResponsiveWindowWidth)
-		$(".menu").data("menuwidth", desktopMenuWidth)
-		$('.menu').data('sitewidth', desktopMenuWidth)
-		$(".menu").css("width", desktopMenuWidth)
-		$(".menu").css("left", "-" + desktopMenuWidth)
-		$('.siteContainer').css 'left', edgeLocation, ->
-			$('body').css('position', "relative")
-			$(".menu").data("state", "closed")
-			animationState = "done"
-
 jQuery ->
-	$(window).bind("load", changeMenuWidth)
-
-	if($(window).width() > ResponsiveWindowWidth)
-		$(window).bind("resize", changeMenuWidth)
 
 	# Menu Open/Close Button
-	# if ($(window).width() > ResponsiveWindowWidth)
 	$('.btn-menu').click ->
-		menuWidth = $('.menu').data('menuwidth')
-		edgeLocation = $('.menu').data('edgelocation')
-		siteWidth = $('.menu').data('sitewidth')
 
-		if $(".menu").data("state") == "open" && animationState != "inProgress"
-			animationState = "inProgress"
-			$('.menu').animate(left:"-" + menuWidth, speed)
-			$('.siteContainer').animate left:edgeLocation, speed, ->
-				if ($(window).width() < ResponsiveWindowWidth)
-					$('body').css('position', "relative")
-				$(".menu").data("state", "closed")
-				animationState = "done"
+		if $(".menu").data("state") == "open"
+			if ($(window).width() < ResponsiveWindowWidth)
+				$(".menu").toggleClass("menu-open-mobile");
+				$('.siteContainer').toggleClass("site-open-mobile");
+				$('body').css "position", relative
+			else
+				$(".menu").toggleClass("menu-open-browser");
+				$('.siteContainer').toggleClass("site-open-browser");
+			$(".menu").data "state", closed
 
-		else if $(".menu").data("state") == "closed" && animationState != "inProgress"
-			animationState = "inProgress"
-			$('.menu').animate(left:edgeLocation, speed)
-			$('.siteContainer').animate left:siteWidth, speed, ->
-				if ($(window).width() < ResponsiveWindowWidth)
-					$('body').css('position', "fixed")
-				$(".menu").data("state", "open")
-				animationState = "done"
+		else if $(".menu").data("state") == "closed"
+			if ($(window).width() < ResponsiveWindowWidth)
+				$(".menu").toggleClass("menu-open-mobile");
+				$('.siteContainer').toggleClass("site-open-mobile");
+				$('body').css "position", fixed
+			else
+				$(".menu").toggleClass("menu-open-browser");
+				$('.siteContainer').toggleClass("site-open-browser");
+			$(".menu").data "state", open
 
 	# This closes the menu when a link is pressed before loading the next page
 	$(".menuLink").click (e) ->
@@ -108,20 +79,24 @@ jQuery ->
 			currentX = (if e.originalEvent.touches then e.originalEvent.touches[0].pageX else e.pageX)
 			currentDistance = (if (startX is 0) then 0 else Math.abs(currentX - startX))
 			currentTime = e.timeStamp
-			if startTime != 0 && currentTime - startTime < maxTime && currentDistance > maxDistance && animationState != "inProgress" && $(window).width() < ResponsiveWindowWidth
+			if startTime != 0 && currentTime - startTime < maxTime && currentDistance > maxDistance
 				if currentX < startX
 					if $(".menu").data("state") == open
-						animationState = "inProgress"
-						$('.menu').animate left:negMobileMenuWidth, speed
-						$('.siteContainer').animate left:edgeLocation, speed, ->
+						if ($(window).width() < ResponsiveWindowWidth)
+							$(".menu").toggleClass("menu-open-mobile");
+							$('.siteContainer').toggleClass("site-open-mobile");
 							$('body').css "position", relative
-							$(".menu").data "state", closed
-							animationState = "done"
+						else
+							$(".menu").toggleClass("menu-open-browser");
+							$('.siteContainer').toggleClass("site-open-browser");
+						$(".menu").data "state", closed
 				if currentX > startX
 					if $(".menu").data("state") == closed
-						animationState = "inProgress"
-						$('.menu').stop().animate left:edgeLocation, speed
-						$('.siteContainer').animate left:mobileSiteWidth, speed, ->
+						if ($(window).width() < ResponsiveWindowWidth)
+							$(".menu").toggleClass("menu-open-mobile");
+							$('.siteContainer').toggleClass("site-open-mobile");
 							$('body').css "position", fixed
-							$(".menu").data "state", open
-							animationState = "done" 
+						else
+							$(".menu").toggleClass("menu-open-browser");
+							$('.siteContainer').toggleClass("site-open-browser");
+						$(".menu").data "state", open
