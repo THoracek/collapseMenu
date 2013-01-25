@@ -20,29 +20,30 @@ moveEvent = (if (touch) then "touchmove" else "mousemove")
 endEvent = (if (touch) then "touchend" else "mouseup")
 
 clearMenu = (e) ->
-	$(".menu").removeClass("menu-open-mobile")
-	$('.siteContainer').removeClass("site-open-mobile")
-	$(".menu").removeClass("menu-open-browser")
-	$('.siteContainer').removeClass("site-open-browser")
+	$(".menu").removeClass "menu-open-mobile"
+	$('.siteContainer').removeClass "site-open-mobile"
+	$(".menu").removeClass "menu-open-browser"
+	$('.siteContainer').removeClass "site-open-browser"
+	$('body').css "position", "relative"
 
 closeMenu = (e) ->
 	if ($(window).width() < ResponsiveWindowWidth)
-		$(".menu").toggleClass("menu-open-mobile")
-		$('.siteContainer').toggleClass("site-open-mobile")
+		$(".menu").toggleClass "menu-open-mobile"
+		$('.siteContainer').toggleClass "site-open-mobile"
 		$('body').css "position", "relative"
 	else
-		$(".menu").toggleClass("menu-open-browser")
-		$('.siteContainer').toggleClass("site-open-browser")
+		$(".menu").toggleClass "menu-open-browser"
+		$('.siteContainer').toggleClass "site-open-browser"
 	$(".menu").data "state", "closed"
 
 openMenu = (e) ->
 	if ($(window).width() < ResponsiveWindowWidth)
-		$(".menu").toggleClass("menu-open-mobile")
-		$('.siteContainer').toggleClass("site-open-mobile")
+		$(".menu").toggleClass "menu-open-mobile"
+		$('.siteContainer').toggleClass "site-open-mobile"
 		$('body').css "position", "fixed"
 	else
-		$(".menu").toggleClass("menu-open-browser");
-		$('.siteContainer').toggleClass("site-open-browser")
+		$(".menu").toggleClass "menu-open-browser"
+		$('.siteContainer').toggleClass "site-open-browser"
 	$(".menu").data "state", "open"
 
 jQuery ->
