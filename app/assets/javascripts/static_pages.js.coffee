@@ -30,7 +30,16 @@ startEvent = (if (touch) then "touchstart" else "mousedown")
 moveEvent = (if (touch) then "touchmove" else "mousemove")
 endEvent = (if (touch) then "touchend" else "mouseup")
 
+changeMenuWidth = (e) ->
+	$(".menu").removeClass("menu-open-mobile");
+	$('.siteContainer').removeClass("site-open-mobile");
+	$(".menu").removeClass("menu-open-browser");
+	$('.siteContainer').removeClass("site-open-browser");
+
 jQuery ->
+
+	#Closes the menu when resizing in the browser
+	$(window).bind("resize", changeMenuWidth)
 
 	# Menu Open/Close Button
 	$('.btn-menu').click ->
