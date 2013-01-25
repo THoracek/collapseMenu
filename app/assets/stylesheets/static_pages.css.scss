@@ -9,7 +9,6 @@ $gray: #999999;
 $lightGray: #f5f5f5;
 
 body {
-	-ms-overflow-x: hidden;
 	overflow-x: hidden;
 	overflow-y: auto;
 }
@@ -23,8 +22,9 @@ body {
 	-ms-overflow-x: hidden;
 	overflow-x: hidden;
 	background-color: $black;
-
+	
 	-webkit-transform: translateZ(0);
+	-webkit-backface-visibility: hidden;
 	-webkit-transition: all .2s ease;
 	-moz-transition: all .2s ease;
 	-o-transition: all .2s ease;
@@ -93,14 +93,9 @@ body {
 .menu-open-mobile {
 	width: 80%;
 	left: 0%;
-	height: 100%;
-	top: 0px;
-	position: fixed;
-	-ms-overflow-x: hidden;
-	overflow-x: hidden;
-	background-color: $black;
-
+	
 	-webkit-transform: translateZ(0);
+	-webkit-backface-visibility: hidden;
 	-webkit-transition: all .2s ease;
 	-moz-transition: all .2s ease;
 	-o-transition: all .2s ease;
@@ -110,8 +105,9 @@ body {
 
 .site-open-mobile {
 	left: 85%;
-
+	
 	-webkit-transform: translateZ(0);
+	-webkit-backface-visibility: hidden;
 	-webkit-transition: all .2s ease;
 	-moz-transition: all .2s ease;
 	-o-transition: all .2s ease;
@@ -121,8 +117,9 @@ body {
 
 .site-open-browser {
 	left: 20%;
-
+	
 	-webkit-transform: translateZ(0);
+	-webkit-backface-visibility: hidden;
 	-webkit-transition: all .2s ease;
 	-moz-transition: all .2s ease;
 	-o-transition: all .2s ease;
@@ -133,14 +130,9 @@ body {
 .menu-open-browser {
 	width: 20%;
 	left: 0%;
-	height: 100%;
-	top: 0px;
-	position: fixed;
-	-ms-overflow-x: hidden;
-	overflow-x: hidden;
-	background-color: $black;
-
+	
 	-webkit-transform: translateZ(0);
+	-webkit-backface-visibility: hidden;
 	-webkit-transition: all .2s ease;
 	-moz-transition: all .2s ease;
 	-o-transition: all .2s ease;
@@ -153,8 +145,9 @@ body {
 	width: 100%;
 	top: 0px;
 	position: relative;
-
+	
 	-webkit-transform: translateZ(0);
+	-webkit-backface-visibility: hidden;
 	-webkit-transition: all .2s ease;
 	-moz-transition: all .2s ease;
 	-o-transition: all .2s ease;
