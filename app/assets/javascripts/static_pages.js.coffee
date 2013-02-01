@@ -40,6 +40,7 @@ closeMenu = (e) ->
 		$('.siteContainer').toggleClass "site-open-browser"
 	$('body').css "position", "relative"
 	$('.siteContainer').css "overflow", "auto"
+	$('.siteContainer').css "padding-left", "20px"
 	$(".menu").data "state", "closed"
 
 openMenu = (e) ->
@@ -48,6 +49,7 @@ openMenu = (e) ->
 		$('.siteContainer').toggleClass "site-open-mobile"
 		$('body').css "position", "fixed"
 		$('.siteContainer').css "overflow", "hidden"
+		$('.siteContainer').css "padding-left", "10px"
 	else
 		$(".menu").toggleClass "menu-open-browser"
 		$('.siteContainer').toggleClass "site-open-browser"
