@@ -38,12 +38,16 @@ closeMenu = (e) ->
 	else
 		$(".menu").toggleClass "menu-open-browser"
 		$('.siteContainer').toggleClass "site-open-browser"
+	$('body').css "position", "relative"
+	$('body').css "overflow", "auto"
 	$(".menu").data "state", "closed"
 
 openMenu = (e) ->
 	if ($(window).width() <= ResponsiveWindowWidth)
 		$(".menu").toggleClass "menu-open-mobile"
 		$('.siteContainer').toggleClass "site-open-mobile"
+		$('body').css "position", "fixed"
+		$('body').css "overflow", "hidden"
 	else
 		$(".menu").toggleClass "menu-open-browser"
 		$('.siteContainer').toggleClass "site-open-browser"
