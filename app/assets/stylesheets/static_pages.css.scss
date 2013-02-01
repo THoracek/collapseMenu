@@ -12,6 +12,12 @@ html {
 }
 
 body {
+	overflow-x: hidden;
+	overflow-y: auto;
+	z-index: 1;
+	background: white;
+	width: auto;
+	padding: 0;
 	height: inherit;
 }
 
