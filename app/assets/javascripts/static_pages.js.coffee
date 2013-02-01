@@ -26,6 +26,11 @@ clearMenu = (e) ->
 	$('.siteContainer').removeClass "site-open-browser"
 	$('body').css "position", "relative"
 	$(".menu").data "state", "closed"
+	if ($(window).width() < ResponsiveWindowWidth)
+		$('.menu').css "width", "80%"
+		$('.siteContainer').css "padding-left", "20px"
+	else
+		$('.menu').css "width", "20%"
 
 closeMenu = (e) ->
 	if ($(window).width() < ResponsiveWindowWidth)
@@ -48,7 +53,14 @@ openMenu = (e) ->
 	$(".menu").data "state", "open"
 
 jQuery ->
-	#Closes the menu when resizing in the browser
+	if ($(window).width() < ResponsiveWindowWidth)
+		$('.menu').css "width", "80%"
+		$('.siteContainer').css "padding-left", "20px"
+		$('.siteContainer').css "padding-right", "20px"
+		$('.siteContainer').css "width", "auto"
+	else
+		$('.menu').css "width", "20%"
+
 	$(window).bind("resize", clearMenu)
 
 	# Menu Open/Close Button
