@@ -6,7 +6,7 @@
 ResponsiveWindowWidth = 767
 
 #Turn on or off touch based menu sliding ("on"/"off")
-touchToggle = "on"
+touchToggle = "off"
 
 #Swipe Variables
 maxTime = 1000
@@ -28,7 +28,6 @@ clearMenu = (e) ->
 	$(".menu").data "state", "closed"
 	if ($(window).width() < ResponsiveWindowWidth)
 		$('.menu').css "width", "80%"
-		$('.siteContainer').css "padding-left", "20px"
 	else
 		$('.menu').css "width", "20%"
 
@@ -55,13 +54,10 @@ openMenu = (e) ->
 jQuery ->
 	if ($(window).width() < ResponsiveWindowWidth)
 		$('.menu').css "width", "80%"
-		$('.siteContainer').css "padding-left", "20px"
-		$('.siteContainer').css "padding-right", "20px"
 		$('.siteContainer').css "width", "auto"
 		$('.siteContainer').css "position", "relative"
 	else
 		$('.menu').css "width", "20%"
-		$('.siteContainer').css "position", "fixed"
 
 	$(window).bind("resize", clearMenu)
 
