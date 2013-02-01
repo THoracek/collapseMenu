@@ -58,8 +58,10 @@ jQuery ->
 		$('.siteContainer').css "padding-left", "20px"
 		$('.siteContainer').css "padding-right", "20px"
 		$('.siteContainer').css "width", "auto"
+		$('.siteContainer').css "position", "relative"
 	else
 		$('.menu').css "width", "20%"
+		$('.siteContainer').css "position", "fixed"
 
 	$(window).bind("resize", clearMenu)
 

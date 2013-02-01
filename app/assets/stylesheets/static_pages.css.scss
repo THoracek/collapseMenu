@@ -99,7 +99,6 @@ body {
 
 .site-open-mobile {
 	left: 80%;
-	overflow-y: disabled;
 
 	-webkit-transform: translateZ(0);
 	-webkit-backface-visibility: hidden;
@@ -112,7 +111,6 @@ body {
 
 .site-open-browser {
 	left: 20%;
-	overflow-y: disabled;
 
 	-webkit-transform: translateZ(0);
 	-webkit-backface-visibility: hidden;
@@ -134,7 +132,7 @@ body {
 }
 
 .siteContainer {
-    position: fixed;
+    position: relative;
     height: 100%;
     width: auto;
     margin:0;
